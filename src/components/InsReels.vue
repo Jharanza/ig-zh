@@ -37,8 +37,7 @@ export default {
 
     const fetchReels = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/reels');
-        if (response.ok) {
+        const response = await fetch('https://mi-backend-en-railway.up.railway.app/api/reels');        if (response.ok) {
           const data = await response.json();
           reels.value = data;
         } else {
