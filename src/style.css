@@ -1,0 +1,79 @@
+:root {
+  --color-title: rgb(51, 51, 51);
+}
+
+@font-face {
+  font-family: 'Voyage';
+  src: url('./assets/fonts/Voyage-Regular.otf') format('opentype'),
+      url('./assets/fonts/Voyage-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Reckless Neue';
+  src: url('./assets/fonts/RecklessNeue-Regular.otf') format('opentype'),
+      url('./assets/fonts/RecklessNeue-SemiBold.otf') format('opentype');
+}
+
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#id {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.title-container > p {
+  font-family: 'Reckless Neue';
+  font-weight: 400;
+  border-bottom: 2px solid black ;
+  padding: 0;
+}
+
+
+.title-container > h2 {
+  font-family: 'Voyage', sans-serif;
+  margin: 0;
+  font-weight: 700;
+  line-height: 36px;
+  padding: 0;
+  text-align: end;
+  color: var(--color-title);
+}
+
+
+@media (max-width: 768px)
+{
+  .title-container > p {
+    font-size: 0.8rem;
+  }
+  
+  .title-container > h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 368px)
+{
+  .title-container > p {
+    font-size: 0.5rem;
+  }
+  
+  .title-container > h2 {
+    font-size: 0.9rem;
+  }
+}
