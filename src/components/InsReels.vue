@@ -40,6 +40,7 @@ export default {
         const response = await fetch('https://servidor-py-production.up.railway.app/api/reels'); // Cambia la URL aquí
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           reels.value = data;
         } else {
           console.error('Error fetching reels');
@@ -123,8 +124,6 @@ export default {
   aspect-ratio: 1/1;
   height: auto;
   cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.5s ease;
 }
 
 .reel-video video:hover {
