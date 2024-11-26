@@ -31,18 +31,27 @@ export default {
   setup() {
     const reels = ref<{
       video_url: string;
-      thumbnail_url: string;
       post_url: string;
     }[]>([]);
 
     const fetchReels = async () => {
       try {
-        const username = 'hotelzamora'
-        const response = await fetch(`https://servidor-py-production.up.railway.app/api/reels?username=${username}`);
+        // Cambia la URL al endpoint correcto
+        const response = await fetch(
+          'https://apify-eucxhst78-jhony-aranas-projects.vercel.app/api/reels'
+        );
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
-          reels.value = data;
+
+          // Mapea los datos para usar las propiedades adecuadas
+          reels.value = data
+            .filter((reel: any) => reel.type === 'Video') // Filtrar solo videos
+            .map((reel: any) => ({
+              video_url: reel.media_url, // Asigna media_url a video_url
+              post_url: reel.post_url,  // Deja post_url como está
+            }));
+
+          console.log(reels.value); // Para debug
         } else {
           console.error('Error fetching reels');
         }
