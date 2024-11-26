@@ -37,9 +37,15 @@ export default {
     const fetchReels = async () => {
       try {
         // Cambia la URL al endpoint correcto
-        const username = 'hotelzamora'
+        const username = 'hotelzamora';
+        const api_token = import.meta.env.VITE_API_TOKEN;
         const response = await fetch(
-          `https://apify-eucxhst78-jhony-aranas-projects.vercel.app/api/reels/${username}`
+          `https://apify-eucxhst78-jhony-aranas-projects.vercel.app/api/reels/${username}`,
+          {
+            headers: {
+              'Authorization': `Bearer ${api_token}`
+            }
+          }
         );
         if (response.ok) {
           const data = await response.json();
