@@ -37,7 +37,8 @@ export default {
 
     const fetchReels = async () => {
       try {
-        const response = await fetch('https://servidor-py-production.up.railway.app/api/reels'); // Cambia la URL aquí
+        const username = 'hotelzamora'
+        const response = await fetch(`https://servidor-py-production.up.railway.app/api/reels?username=${username}`);
         if (response.ok) {
           const data = await response.json();
           console.log(data);
