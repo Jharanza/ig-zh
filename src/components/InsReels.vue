@@ -37,15 +37,16 @@ export default {
     const fetchReels = async () => {
       try {
         // Cambia la URL al endpoint correcto
+        const username = 'hotelzamora'
         const response = await fetch(
-          'https://apify-eucxhst78-jhony-aranas-projects.vercel.app/api/reels'
+          `https://apify-eucxhst78-jhony-aranas-projects.vercel.app/api/reels/${username}`
         );
         if (response.ok) {
           const data = await response.json();
 
           // Mapea los datos para usar las propiedades adecuadas
           reels.value = data
-            .filter((reel: any) => reel.type === 'Video') // Filtrar solo videos
+            //.filter((reel: any) => reel.type === 'Video') // Filtrar solo videos
             .map((reel: any) => ({
               video_url: reel.media_url, // Asigna media_url a video_url
               post_url: reel.post_url,  // Deja post_url como está
